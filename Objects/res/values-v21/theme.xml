@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.Herustyle" parent="@android:style/Theme.Material.Light.DarkActionBar">
+  <item name="android:colorPrimary">#5FF05F</item>
+  <item name="android:colorPrimaryDark">#32CD32</item>
+  <item name="android:colorAccent">#32CD32</item>
+  </style>
+</resources>

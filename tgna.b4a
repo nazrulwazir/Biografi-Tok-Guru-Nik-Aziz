@@ -1,0 +1,120 @@
+﻿Version=6
+NumberOfModules=6
+Module1=Home
+Module2=kata
+Module3=SlidingPanels
+Module4=video
+Module5=biodata
+Module6=Starter
+Build1=Default,lab.tgna
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="21"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:supportsRtl, "true")~\n~'End of default text.~\n~~\n~SetApplicationAttribute(android:theme, "@style/MyAppTheme")~\n~~\n~CreateResource(values, themes.xml,~\n~<resources>~\n~    <style name="MyAppTheme" parent="Theme.AppCompat">~\n~        <item name="colorPrimary">#696969</item>~\n~        <item name="colorPrimaryDark">#696969</item>~\n~        <item name="colorAccent">#808080</item>~\n~        <item name="windowNoTitle">true</item>~\n~        <item name="windowActionBar">false</item>~\n~		<item name="windowActionModeOverlay">true</item>~\n~    </style>~\n~~\n~</resources>~\n~)~\n~~\n~~\n~
+IconFile=
+NumberOfFiles=15
+File1=bg_bright_blue.jpg
+File2=biodata.bal
+File3=flip3dview1.bal
+File4=help.png
+File5=intro.bal
+File6=kata.bal
+File7=lagu.mp3
+File8=lagu2.mp3
+File9=Main.bal
+File10=main2.bal
+File11=main3.bal
+File12=surah.mp3
+File13=tgna.PNG
+File14=video.bal
+File15=video.mp4
+NumberOfLibraries=9
+Library1=core
+Library2=animation
+Library3=appcompat
+Library4=icosflip3dview
+Library5=audio
+Library6=pageturnview
+Library7=threading
+Library8=phone
+Library9=irloadingviews
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: TGNA
+	#VersionCode: 14
+	#VersionName: 1.4
+	#VersionName: Beta
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+Dim timer1 As Timer
+Public x1, x2, x3 As String
+
+	Public clicksound As MediaPlayer
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+  Dim  introwel As MediaPlayer 
+
+
+	Dim ProgressBar1 As ProgressBar
+	Dim num As Int
+
+
+	Private Button1 As Button
+	Private btnScramble As Button
+	Private btnAbout As Button
+Private IRCircularZoom1 As IRCircularZoom
+	Private btnVolume As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("intro")
+	IRCircularZoom1.startAnim
+
+		timer1.Initialize("timer1",50)
+	timer1.Enabled = True
+	ProgressBar1.Top = 94%y
+	ProgressBar1.Left  = 0%x
+	ProgressBar1.Width = 100%x
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub timer1_tick
+num = num +1
+ProgressBar1.Progress = num
+
+If ProgressBar1.Progress == 2 Then
+
+End If
+
+If ProgressBar1.Progress == 70 Then
+
+
+End If
+
+
+If ProgressBar1.Progress == 100 Then
+timer1.Enabled = False
+IRCircularZoom1.stopAnim
+StartActivity("Home")
+Activity.Finish
+End If
+End Sub
